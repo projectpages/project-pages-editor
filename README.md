@@ -2,6 +2,10 @@
 
 http://prose.io/
 
+Help:
+
+https://github.com/prose/prose/blob/gh-pages/CONTRIBUTING.md
+
 ## Development Cycle
 
 ```
