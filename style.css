@@ -467,7 +467,7 @@ ins {
 .containment,
 .limiter {
   position:relative;
-  width:680px;
+  width:65%;
   margin:0 auto;
   }
 
@@ -2550,7 +2550,7 @@ ins {
     }
     .fixed .containment,
     .limiter {
-      padding-right:60px;
+      padding-right:35%;
       }
     .open .fixed .containment,
     .open .limiter {

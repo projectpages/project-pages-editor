@@ -1,36 +1,10 @@
 <!--MATIN, Adjusted Repo Elements to Look Like MDL Cards-->   
 
-<!-- Get HEADER NOT WORKING 
-<script>
-function getHeader(url) {
-    $.ajax({
-      url: url,
-      dataType: 'text',
-      type: 'GET',
-      success: function(data) {
-	  
-        data = data.split(/[\n, ]+/) ;
-        var imgindex = data.indexOf('img/home-bg.jpg') + 1;
-		
-		var cardFace = $(['div[data-id="' + <%- repo.id %> + '"]']);
-      
-		console.log(cardFace);   
-		
-		cardFace[0].style.background = ['url("' + '<%= repo.homepage %>' + '/' + data[imgindex] + '") center / cover;'];
-		console.log(foo[0].style.color);   
-      }
-    });
-};
-
-getHeader(['https://rawgit.com/' + '<%- repo.owner.login %>' + '/' + '<%- repo.name %>' + '/gh-pages/_config.yml']);
-</script>
--->
-
-<div class="demo-card-event mdl-cell mdl-card mdl-shadow--2dp" style=" width: 300px; height: 140px; background: rgba(249, 128, 80, 0.81); min-height: 140px">
+<div class="demo-card-event mdl-cell mdl-card mdl-shadow--2dp" style=" width: 240px; height: 150px; background: rgba(249, 128, 80, 0.81); min-height: 140px">
   
 <div class="mdl-card__title mdl-card--expand"></div>
 
-<div class="mdl-card__actions" style=" height: 62px; padding: 16px; background: rgba(0, 0, 0, 0.4); display: flex; box-sizing:border-box; align-items: center;">
+<div class="mdl-card__actions" style=" height: 92px; padding: 16px; background: rgba(0, 0, 0, 0.4); display: flex; box-sizing:border-box; align-items: center;">
 	<span class="demo-card-image__filename" style=" color: #fff; font-size: 18px; font-weight: 500;"><%- repo.name %></span>
 </div>
 
