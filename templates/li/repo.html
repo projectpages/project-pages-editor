@@ -42,11 +42,9 @@ getHeader(['https://rawgit.com/' + '<%- repo.owner.login %>' + '/' + '<%- repo.n
 	
 	<div class="mdl-layout-spacer"></div>
 	
-	<% if (repo.homepage) { %>
-	<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style ="  color: #fff; height: initial; min-width: 0px; padding: 0px; font-size: 18px; " href='<%- repo.homepage %>'>
+	<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style ="  color: #fff; height: initial; min-width: 0px; padding: 0px; font-size: 18px; " href='http://<%- repo.owner.login %>.github.io/<%- repo.name %>/'>
 		<i class="material-icons md-24">public</i>
 	</a>
-	<% } %>
 
 </div>
 
