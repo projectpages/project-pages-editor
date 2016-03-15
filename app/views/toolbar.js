@@ -125,6 +125,9 @@ module.exports = Backbone.View.extend({
 		case 'cblock':
           this.cblock(selection);
           break;
+		case 'hcblock':
+          this.hcblock(selection);
+          break;
         default:
           this.view.editor.replaceSelection(snippet);
           break;
@@ -450,12 +453,24 @@ module.exports = Backbone.View.extend({
 
   cblock: function(s) {
     if (s.charAt(0) === '`' && s.charAt(s.length - 2 === '`')) {
-      this.view.editor.replaceSelection(s.replace(/```\n/g, '').replace(/\n```/g, ''));
+      this.view.editor.replaceSelection(s.replace(/```\n/g, '').replace(/```/g, ''));
     } else {
       this.view.editor.replaceSelection('```\n' + s.replace(/\```/g, '') + '\n```');
     }
   },
+  
+  hcblock: function(s) {
+    if (s.charAt(0) === '{' && s.charAt(1) === '%' && s.charAt(3) === 'h' && s.charAt(s.length - 1 === '}')) {
+      this.view.editor.replaceSelection(s.replace(/\{\% highlight python \%\}/g, '').replace(/\{\% endhighlight \%\}/g, ''));
+    } else {
+      this.view.editor.replaceSelection('{% highlight python %}\n' + s.replace(/\{\% highlight python \%\}/g, '').replace(/\{\% endhighlight \%\}/g, '') + '\n{% endhighlight %}');
+    }
+  },
+  
 
+
+  // MATIN - End
+  
   renderMedia: function(data, back) {
     var self = this;
     var $media = this.$el.find('#media');
