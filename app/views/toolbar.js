@@ -128,6 +128,42 @@ module.exports = Backbone.View.extend({
 		case 'hcblock':
           this.hcblock(selection);
           break;
+		case 'mainheading':
+          this.mainheading(selection);
+          break;
+		case 'rule':
+          this.rule(selection);
+          break;
+		case 'underline':
+          this.underline(selection);
+          break;
+		case 'aleft':
+          this.aleft(selection);
+          break;		  
+		case 'acenter':
+          this.acenter(selection);
+          break;	
+		case 'aright':
+          this.aright(selection);
+          break;	
+		case 'ajustify':
+          this.ajustify(selection);
+          break;	
+		case 'red':
+          this.red(selection);
+          break;	
+		case 'green':
+          this.green(selection);
+          break;	
+		case 'blue':
+          this.blue(selection);
+          break;
+		case 'hslide':
+          this.hslide(selection);
+          break;	
+		case 'vslide':
+          this.vslide(selection);
+          break;			  
         default:
           this.view.editor.replaceSelection(snippet);
           break;
@@ -467,7 +503,101 @@ module.exports = Backbone.View.extend({
     }
   },
   
-
+  mainheading: function(s) {
+    if (s.charAt(0) === '#' && s.charAt(1) !== '#') {
+      this.view.editor.replaceSelection(util.lTrim(s.replace(/#/g, '')));
+    } else {
+      this.view.editor.replaceSelection('# ' + s.replace(/#/g, ''));
+    }
+  },
+  
+  rule: function(s) {
+    if (s.charAt(0) === '-' && s.charAt(2) === '-') {
+      this.view.editor.replaceSelection(s.replace(/\-/g, ''));
+    } else {
+      this.view.editor.replaceSelection('------\n' + s.replace(/\-/g, ''));
+    }
+  },
+  
+  underline: function(s) {
+    if (s.charAt(1) === 'u' &&  s.charAt(s.length - 2 === 'u')   &&  s.charAt(s.length - 1 === '>')) {
+      this.view.editor.replaceSelection(s.replace(/\<u\>/g, '').replace(/\<\/u\>/g, ''));
+    } else {
+      this.view.editor.replaceSelection('<u>' + s.replace(/\<u\>/g, '').replace(/\<\/u\>/g, '') + '</u>');
+    }
+  },
+  
+  aleft: function(s) {
+    if (s.charAt(10) === 'l' &&  s.charAt(s.length - 2 === 'p') &&  s.charAt(s.length - 1 === '>')) {
+      this.view.editor.replaceSelection(s.replace(/\<p align=\"left\"\>/g, '').replace(/\<\/p\>/g, ''));
+    } else {
+      this.view.editor.replaceSelection('<p align="left">\n' + s.replace(/\<p align=\"left\"\>/g, '').replace(/\<\/p\>/g, '') + '\n</p>');
+    }
+  },
+  
+  acenter: function(s) {
+    if (s.charAt(10) === 'c' &&  s.charAt(s.length - 2 === 'p') &&  s.charAt(s.length - 1 === '>')) {
+      this.view.editor.replaceSelection(s.replace(/\<p align=\"center\"\>/g, '').replace(/\<\/p\>/g, ''));
+    } else {
+      this.view.editor.replaceSelection('<p align="center">\n' + s.replace(/\<p align=\"center\"\>/g, '').replace(/\<\/p\>/g, '') + '\n</p>');
+    }
+  },
+  
+  aright: function(s) {
+    if (s.charAt(10) === 'r' &&  s.charAt(s.length - 2 === 'p') &&  s.charAt(s.length - 1 === '>')) {
+      this.view.editor.replaceSelection(s.replace(/\<p align=\"right\"\>/g, '').replace(/\<\/p\>/g, ''));
+    } else {
+      this.view.editor.replaceSelection('<p align="right">\n' + s.replace(/\<p align=\"right\"\>/g, '').replace(/\<\/p\>/g, '') + '\n</p>');
+    }
+  },
+  
+  ajustify: function(s) {
+    if (s.charAt(10) === 'j' &&  s.charAt(s.length - 2 === 'p') &&  s.charAt(s.length - 1 === '>')) {
+      this.view.editor.replaceSelection(s.replace(/\<p align=\"justify\"\>/g, '').replace(/\<\/p\>/g, ''));
+    } else {
+      this.view.editor.replaceSelection('<p align="justify">\n' + s.replace(/\<p align=\"justify\"\>/g, '').replace(/\<\/p\>/g, '') + '\n</p>');
+    }
+  },
+  
+  red: function(s) {
+    if (s.charAt(16) === 'r' &&  s.charAt(s.length - 2 === 'p') &&  s.charAt(s.length - 1 === '>')) {
+      this.view.editor.replaceSelection(s.replace(/\<p style=\"color:red\"\>/g, '').replace(/\<\/p\>/g, ''));
+    } else {
+      this.view.editor.replaceSelection('<p style="color:red">\n' + s.replace(/\<p style=\"color:red\"\>/g, '').replace(/\<\/p\>/g, '') + '\n</p>');
+    }
+  },
+  
+  green: function(s) {
+    if (s.charAt(16) === 'g' &&  s.charAt(s.length - 2 === 'p') &&  s.charAt(s.length - 1 === '>')) {
+      this.view.editor.replaceSelection(s.replace(/\<p style=\"color:green\"\>/g, '').replace(/\<\/p\>/g, ''));
+    } else {
+      this.view.editor.replaceSelection('<p style="color:green">\n' + s.replace(/\<p style=\"color:green\"\>/g, '').replace(/\<\/p\>/g, '') + '\n</p>');
+    }
+  },
+  
+  blue: function(s) {
+    if (s.charAt(16) === 'b' &&  s.charAt(s.length - 2 === 'p') &&  s.charAt(s.length - 1 === '>')) {
+      this.view.editor.replaceSelection(s.replace(/\<p style=\"color:blue\"\>/g, '').replace(/\<\/p\>/g, ''));
+    } else {
+      this.view.editor.replaceSelection('<p style="color:blue">\n' + s.replace(/\<p style=\"color:blue\"\>/g, '').replace(/\<\/p\>/g, '') + '\n</p>');
+    }
+  },
+  
+  hslide: function(s) {
+    if (s.charAt(0) === '{' && s.charAt(1) === '{' && s.charAt(3) === 'p' && s.charAt(8) === 'h' && s.charAt(s.length - 1 === '}')) {
+      this.view.editor.replaceSelection(s.replace(/\{\{ page.horizontal \}\}/g, ''));
+    } else {
+      this.view.editor.replaceSelection('{{ page.horizontal }}' + s.replace(/\{\{ page.horizontal \}\}/g, ''));
+    }
+  },
+  
+  vslide: function(s) {
+    if (s.charAt(0) === '{' && s.charAt(1) === '{' && s.charAt(3) === 'p' && s.charAt(8) === 'v' && s.charAt(s.length - 1 === '}')) {
+      this.view.editor.replaceSelection(s.replace(/\{\{ page.vertical \}\}/g, ''));
+    } else {
+      this.view.editor.replaceSelection('{{ page.vertical }}' + s.replace(/\{\{ page.vertical \}\}/g, ''));
+    }
+  },
 
   // MATIN - End
   

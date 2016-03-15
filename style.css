@@ -1335,14 +1335,14 @@ ins {
     }
   .dialog.no-directory {
     width:240px;
-    left:45px;
+    right:25%;
     }
     .fixed .dialog.no-directory {
       left:100px;
       }
   .dialog.link {
     width:210px;
-    left:20px;
+    right:25%;
     }
     .fixed .dialog.link {
       left:78px;
