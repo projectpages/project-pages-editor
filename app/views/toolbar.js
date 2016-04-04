@@ -40,7 +40,7 @@ module.exports = Backbone.View.extend({
           return m.get('type') === 'file' && match.test(path) &&
             (util.isBinary(path) || util.isImage(m.get('extension')));
         });
-      }
+      };
 
       if (config.relativeLinks) {
         $.ajax({
@@ -53,7 +53,23 @@ module.exports = Backbone.View.extend({
             self.relativeLinks = links;
           }
         });
-      }
+	  };
+
+      // MATIN - ADD Default Relative Links for Project Pages
+      if (config.ispp) {
+		var relLinks = config.siteurl + 'proselinks.jsonp';
+        $.ajax({
+          cache: true,
+          dataType: 'jsonp',
+          jsonp: false,
+          jsonpCallback: relLinks.split('?callback=')[1] || 'callback',
+          url: relLinks,
+          success: function(links) {
+            self.relativeLinks = links;
+          }
+        });
+      };
+	  
     }
   },
 
