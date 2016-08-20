@@ -12,9 +12,30 @@
 
 <!-- Material Design Formatting -->
 
+<style>
+.newrepo {
+float:right;
+position: relative;
+right: 15%;
+width: 24%;
+}
+
+
+@media (max-width: 1280px) {
+.newrepo {
+display: none;
+}
+}
+</style>
+
 <div id='content' class='application content limiter'>
+	<div id="newrepo" class="newrepo">
+	<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">
+	  New Project-Pages
+	</button>
+	</div>
   <div class='topbar'>
-    <div id='search' class='content-search round'></div>
+    <div id='search' class='content-search round'></div>	
   </div>
   <div id='repos' class='mdl-grid'></div>
 </div>

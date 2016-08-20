@@ -1217,10 +1217,10 @@ ins {
     }
 
 .topbar.fixed {
-  position:fixed;
-  z-index: 100;
-  width:100%;
-  top:0;left:0;
+    position: fixed;
+    z-index: 100;
+    width: 65%;
+    top: 0;
   }
 .toolbar {
   background:#fff;
