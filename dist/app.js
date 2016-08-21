@@ -32419,7 +32419,7 @@ module.exports={
   "api": "https://api.github.com",
   "site": "https://github.com",
   "clientId": "23727662f9ec090633ae",
-  "gatekeeperUrl": "https://projectsviewgatekeeper.herokuapp.com/"
+  "gatekeeperUrl": "https://projectsviewgatekeeper.herokuapp.com"
 }
 },{}],114:[function(require,module,exports){
 // Automatically Generated
