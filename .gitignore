@@ -2,6 +2,7 @@
 node_modules/
 dist/*
 transifex.auth
+oauth.json
 .vimrc
 test/lib/index.js
 test/lib/polyfill.js
