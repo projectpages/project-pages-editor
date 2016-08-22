@@ -57,7 +57,7 @@ module.exports = Backbone.View.extend({
 
       // MATIN - ADD Default Relative Links for Project Pages
       if (config.ispp) {
-		var relLinks = config.siteurl + 'proselinks.jsonp';
+		var relLinks = config.siteurl.replace('http://','https://') + 'proselinks.jsonp';
         $.ajax({
           cache: true,
           dataType: 'jsonp',
