@@ -1,6 +1,6 @@
 <!--MATIN, Adjusted Repo Elements to Look Like MDL Cards-->   
 
-<% if (repo.owner.login == repo.login || repo.name == "project-pages") { %>
+<% if ((repo.owner.login == repo.login && repo.has_pages) || repo.name == "project-pages") { %>
 
 <div class="demo-card-event mdl-cell mdl-card mdl-shadow--2dp" style=" width: 240px; height: 150px; background: rgba(249, 0, 0, 0.81); min-height: 140px">
   
@@ -26,7 +26,7 @@
 
 </div>
 
-<% } else { %>
+<% } else if (repo.owner.login != repo.login && repo.has_pages) { %>
 
 <div class="demo-card-event mdl-cell mdl-card mdl-shadow--2dp" style=" width: 240px; height: 150px; background: rgba(0, 0, 249, 0.81); min-height: 140px">
   

@@ -25,8 +25,7 @@ module.exports = Backbone.View.extend({
     var frag = document.createDocumentFragment();
 	
     collection.each((function(repo, i) {
-	// MATIN - Only Show Gh-Pages
-	if (repo.attributes.has_pages){
+	// MATIN - Only Show Gh-Pages - Negate and adjust template instead.
       var view = new RepoView({
         index: i,
         model: repo
@@ -34,7 +33,6 @@ module.exports = Backbone.View.extend({
 
       frag.appendChild(view.render().el);
       this.subviews[repo.id] = view;
-	}
 		
     }).bind(this));
 
